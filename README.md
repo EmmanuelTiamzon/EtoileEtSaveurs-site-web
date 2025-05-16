@@ -1,7 +1,7 @@
 # site-web-EtoileEtSaveurs
 
 **Étoile & Saveurs** est un site web développé dans le cadre d’un projet universitaire à l’IUT de Fontainebleau (UPEC).  
-Ce projet a été réalisé dans le cadre de la SAE de développement web.
+Ce projet a été réalisé dans le cadre de la SAE de développement web, si vous souhaitez le visiter :  https://dwarves.iut-fbleau.fr/~srivasta/SAE_WEB/
 
 ## 🌟 Description
 
