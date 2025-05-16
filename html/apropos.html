@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - Étoiles & Saveurs</title>
+    <link rel="stylesheet" href="../css/style_global.css">
+</head>
+<style>/* Style global */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fefae0;
+            color: #333;
+        }
+
+        .main-menu.open {
+            display: block;
+            flex-direction: column;
+            font-size: 10px; /* Remplace par la taille souhaitée */
+        }
+        
+        main {
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            border-radius: 8px;
+            max-width: 1200px;
+        }
+        
+        main section {
+            margin-bottom: 30px;
+        }
+        
+        main h2 {
+            color: #444;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        main h4 {
+            color: #555;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        main p {
+            color: #666;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+        
+        /* Style des boxes pour chaque chef */
+        main .cv-atik, .cv-manu, .cv-konan {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #fbede0;
+            border: 1px solid #ddd;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        /* Alignement vertical pour les petits écrans */
+        main .cv-atik, .cv-manu, .cv-konan {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        /* Styles des liens */
+        main .cv-atik a, main .cv-manu a, main .cv-konan a {
+            text-decoration: none;
+            color: #fff;
+            background-color: #007BFF;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        /* Changer la couleur au survol */
+        main .cv-atik a:hover, main .cv-manu a:hover, main .cv-konan a:hover {
+            background-color: #0056b3;
+        }
+
+        
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+            .cv-atik, .cv-manu, .cv-konan {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+    </style>
+<body>
+    <header>
+        <a href="../index.html"><img src="../img/logo_etoile&saveurs.png" alt="TIAMZON Emmanuel" width="100"></a>
+
+            <div class="burger-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <a href="inscription.html" class="register-button">S'inscrire</a>
+
+
+            <a href="connecter.html" class="login-button">Se connecter</a>
+
+        <nav class="main-menu">
+            <ul>
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="apropos.html">Qui sommes-nous</a></li>
+                <li><a href="page_recettes.html">Nos Chefs et Nos Recettes</a></li>
+                <li><a href="carte_chefs.html">Carte des Chefs</a></li>
+                <li><a href="disponibilite.html">Disponibilité</a></li>
+                <li><a href="page_contact.html">Contact</a></li>
+                <li><a href="javascript:history.back()" class="back-button">Retour</a></li>
+            </ul>
+        </nav>
+        
+    </header>
+    
+    
+    <main>
+        <section class="presentation">
+            <h2>Qui sommes-nous ?</h2>
+            <h4>Bienvenue chez <strong>Etoiles et Saveurs</strong></h4>
+            <p> 
+            Chez Étoiles et Saveurs, nous croyons que chaque repas est une occasion de créer des souvenirs inoubliables. 
+            C'est pourquoi nous avons créé un service unique qui vous permet de profiter du savoir-faire des meilleurs chefs directement dans le confort de votre maison.
+            Notre mission ? Apporter l'excellence de la gastronomie à votre table, en amenant jusqu'à vous de véritables expériences étoilées.
+            </p>
+        </section>
+        <section class="notre-histoire">
+            <h2>Notre histoire</h2>
+            <p>
+                Tout a commencé avec une passion commune pour la gastronomie et une vision audacieuse : 
+                rendre la haute cuisine accessible à tous. En 2020, Wael Atik, Emmanuel Tiamzon et Josué Konan 
+                ont uni leurs forces pour créer une entreprise qui révolutionne la manière dont nous expérimentons 
+                la gastronomie.
+            </p>
+            <p>
+                Aujourd'hui, Étoiles & Saveurs est fier de collaborer avec des chefs renommés pour vous offrir des 
+                expériences culinaires inoubliables dans le confort de votre foyer.
+            </p>
+        </section>
+        
+
+        <div class="cv-atik">
+            <p>Wael ATIK : Fondateur et ingénieur en chef d'Etoiles et Saveurs.</p><a href="cv_wael.html" class="btn" target="_blank">Ouvrir le CV</a>
+        </div>
+        
+        <div class="cv-manu">
+            <p>Emmanuel TIAMZON : Chef cuisinier et co-fondateur de notre entreprise.</p>
+            <a href="cv_manu.html" class="btn" target="_blank">Ouvrir le CV</a>
+        </div>
+        
+        <div class="cv-konan">
+            <p>Josué KONAN : Assistant et collaborateur dans la création de l'entreprise.</p>
+            <a href="cv_josue.html" class="btn" target="_blank">Ouvrir le CV</a>
+        </div>
+        
+ 
+    </main>
+        
+    <div class="scroll-to-top" onclick="scrollToTop()">
+        <img src="../img/fleche.png" alt="Retour en haut"> 
+    </div>
+    <footer>
+        <p>&copy; 2024 Étoiles & Saveurs. Tous droits réservés.</p>
+    </footer>
+<script>
+    const burgerMenu = document.querySelector('.burger-menu');
+    const nav = document.querySelector('header nav');
+
+    burgerMenu.addEventListener('click', () => {
+        nav.classList.toggle('open');
+    });
+
+    // Réinitialise le menu si la fenêtre est redimensionnée au-delà de 768px
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            nav.classList.remove('open');
+        }
+    });
+            // Fonction pour revenir en haut de la page
+            function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+</script>
+</body>
+</html>

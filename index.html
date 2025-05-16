@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - Étoiles & Saveurs</title>
+    <link rel="stylesheet" href="css/style_global.css">
+</head>
+<style>
+html, body {
+    background-color: #fbede0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+
+    background: url("img/img-fond-chef.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+</style>
+<body>
+    <header>
+        <a href="index.html"><img src="img/logo_etoile&saveurs.png" alt="TIAMZON Emmanuel" width="100"></a>
+            
+            <div class="burger-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            
+            <a href="html/inscription.html" class="register-button">S'inscrire</a>
+
+            
+            <a href="html/connecter.html" class="login-button">Se connecter</a>
+
+        <nav class="main-menu">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="html/apropos.html">Qui sommes-nous</a></li>
+                <li><a href="html/page_recettes.html">Nos Chefs et Nos Recettes</a></li>
+                <li><a href="html/carte_chefs.html">Carte des Chefs</a></li> <!-- Nouveau lien -->
+                <li><a href="html/disponibilite.html">Disponibilité</a></li>
+                <li><a href="html/page_contact.html">Contact</a></li>
+                <li><a href="javascript:history.back()" class="back-button">Retour</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- Barre latérale gauche -->
+        <div class="left-bar">
+        </div>         
+        
+        <!-- Contenu principal -->
+        <div class="main-container">
+            
+            <!-- Section d'introduction -->
+            <section class="intro">
+                <h2>Bienvenue sur notre plateforme</h2>
+                <h3>La cuisine des grands chefs pour tous!</h3>
+                <p>Découvrez une expérience culinaire unique avec les meilleurs chefs de votre région.</p>
+            </section>
+            
+            <!-- Section des chefs -->
+            <section class="chefs">
+                <!-- Chef de l'année -->
+                <article class="chef-of-the-year">
+                    <img src="img/img_manu.jpg" alt="TIAMZON Emmanuel" width="150">
+                    <h3>Chef de l'année</h3>
+                    <p>TIAMZON Emmanuel</p>
+                </article>
+    
+                <!-- Profil d'un chef -->
+                <article class="chef">
+                    <a href="html/chef_tiamzon.html">
+                        <h3>TIAMZON Emmanuel</h3>
+                        <p>Spécialités : Cuisine asiatique</p>
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p>Spécialités : Cuisine italienne</p>
+                        <p>⭐⭐⭐</p>
+                        <p>Spécialités : Friture de toutes sortes</p>
+                        <p>⭐⭐⭐⭐</p>
+                        <p class="price">Prix moyen : 75 €/personne</p>
+                    </a>
+                </article>
+            </section>
+
+            <!-- Section FAQ -->
+            <section class="faq">
+                <h2>Foire Aux Questions (FAQ)</h2>
+                
+                <div class="faq-item">
+                    <h3>Qu'est-ce qu'Étoiles & Saveurs ?</h3>
+                    <p>Étoiles & Saveurs est une plateforme qui vous permet de découvrir des chefs talentueux et de vivre une expérience culinaire unique.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Comment réserver un chef ?</h3>
+                    <p>Vous pouvez réserver un chef directement sur notre site en sélectionnant la recette et le chef qui vous intéresse.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Les chefs sont-ils disponibles à tout moment ?</h3>
+                    <p>Les disponibilités des chefs varient. Veuillez consulter leur profil pour connaître leurs horaires disponibles.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Plage de Prix des Chefs</h3>
+                    <ul>
+                        <li>Repas simple : 50 €/personne</li>
+                        <li>Menu gastronomique : 100 €/personne</li>
+                        <li>Ateliers de cuisine : 75 €/personne</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Section des avis -->
+            <section class="reviews">
+                <h2>Avis des Clients</h2>
+                
+                <div class="review-item">
+                    <p>"Une expérience culinaire inoubliable ! Les chefs sont incroyables et les recettes sont délicieuses."</p>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>- Marie Dupont</p>
+                </div>
+                
+                <div class="review-item">
+                    <p>"J'ai découvert des saveurs nouvelles et appris à cuisiner des plats incroyables grâce à Étoiles & Saveurs."</p>
+                    <div class="stars">⭐⭐⭐⭐</div>
+                    <p>- Julien Martin</p>
+                </div>
+                
+                <div class="review-item">
+                    <p>"Une plateforme exceptionnelle pour tous les passionnés de cuisine. Une belle découverte !"</p>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>- Sarah Cohen</p>
+                    
+                </div>
+            </section>
+        </div>
+    
+        <!-- Barre latérale droite -->
+        <div class="right-bar"></div> 
+    </main>
+
+    
+    <div class="scroll-to-top" onclick="scrollToTop()">
+        <img src="img/fleche.png" alt="Retour en haut"> 
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Étoiles & Saveurs. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        const burgerMenu = document.querySelector('.burger-menu');
+        const nav = document.querySelector('header nav');
+
+        burgerMenu.addEventListener('click', () => {
+            nav.classList.toggle('open');
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                nav.classList.remove('open');
+            }
+        });
+
+        // Fonction pour revenir en haut de la page
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+/* Menu burger */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 15px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 15; /* Toujours au-dessus du contenu */
+    background: none; /* Pas de fond */
+    border: none; /* Pas de bordure */
+}
+/* Les lignes du burger */
+.burger-menu span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 3px;
+}
+
+/* Responsivité - Menu burger visible seulement sur petit écran */
+@media (max-width: 768px) {
+    header nav {
+        display: none; /* Cache la navigation classique sur petit écran */
+    }
+
+    .burger-menu {
+        display: flex; /* Affiche le menu burger */
+    }
+
+    header nav.open {
+        display: block;
+        position: absolute;
+        top: 140px; /* Ajoute un espace pour le logo */
+        left: 0;
+        background-color: #F9A03F;
+        width: 100%; /* Prend toute la largeur */
+        padding: 10px 0; /* Ajuste la hauteur du menu */
+        z-index: 10;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 20px;
+        padding-left: 10px;
+    }
+
+    header h1 {
+        z-index: 12; /* Toujours visible */
+    }
+
+    .burger-menu {
+        position: fixed; /* Fixe le bouton burger */
+        z-index: 15;
+    }
+}
+
+.recette {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 800px;
+}
+
+.recette img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.recette h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+.recette p {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.recette ul li {
+    color:#333;
+    display: inline;
+    font-size: 20px;
+    margin:15px;
+}
+
+
+/* Section des étapes de la recette */
+.etapes-recette {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.etapes-recette h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #000;
+    text-align: center;
+}
+
+.etapes-recette ol {
+    padding-left: 40px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.etapes-recette ol li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+
+.contact-form {
+    max-width: 600px;
+    margin: 30px auto;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.contact-form h2 {
+    color: #a6aa7f;
+    text-align: center;
+}
+
+.contact-form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #ffcc00;
+    color: #333;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #e6b800;
+}

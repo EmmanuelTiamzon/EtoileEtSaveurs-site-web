@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carte des Chefs - Étoiles & Saveurs</title>
+    <link rel="stylesheet" href="../css/style_global.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <style>
+        /* Carte des Chefs */
+        #map {
+            height: 700px;
+            width: 700px;
+            margin: 20px 0;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
+            z-index: 1; /* Place la carte sous le menu et le burger */
+        }
+
+        .pr{
+            margin: 20px;
+            text-align: center;
+            color: #979b76;
+            font-size: 2rem;
+        }
+    </style>
+    
+</head>
+<body>
+    <header>
+        <a href="../index.html"><img src="../img/logo_etoile&saveurs.png" alt="TIAMZON Emmanuel" width="100"></a>
+
+            <div class="burger-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+
+            <a href="inscription.html" class="register-button">S'inscrire</a>
+
+
+            <a href="connecter.html" class="login-button">Se connecter</a>
+
+        <nav>
+            <ul>
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="apropos.html">Qui sommes-nous</a></li>
+                <li><a href="page_recettes.html">Nos Chefs et Nos Recettes</a></li>
+                <li><a href="carte_chefs.html">Carte des Chefs</a></li>
+                <li><a href="disponibilite.html">Disponibilité</a></li>
+                <li><a href="page_contact.html">Contact</a></li>
+                <li><a href="javascript:history.back()" class="back-button">Retour</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2 class="pr">Découvrez où nos chefs se trouvent</h2>
+            <div id="map"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Étoiles & Saveurs. Tous droits réservés.</p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Initialisation de la carte
+        const map = L.map('map', {
+            center: [48.8566, 2.3522], // Centré sur Paris
+            zoom: 11, // Zoom initial
+            minZoom: 7, // Zoom minimal
+            maxZoom: 20 // Zoom maximal
+        });
+
+        // Ajout des tuiles OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Liste des chefs avec leurs coordonnées et spécialités
+        const chefs = [
+            { name: "TAMILL Lakshmann", coords: [48.8566, 2.3522], specialties: "Cuisine indienne, italienne" },
+            { name: "ATIK Mahmoud", coords: [48.8610, 2.3310], specialties: "Cuisine arabe, française" },
+            { name: "TIAMZON Emmanuel", coords: [48.8666, 2.3218], specialties: "Cuisine asiatique, italienne, friture" }
+        ];
+
+        // Ajout des marqueurs pour chaque chef
+        chefs.forEach(chef => {
+            const marker = L.marker(chef.coords).addTo(map);
+            marker.bindPopup(`<b>${chef.name}</b><br>${chef.specialties}`);
+        });
+
+        // Gestion du bouton "Retour"
+        const backButton = document.getElementById('back-button');
+        if (backButton) {
+            backButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (window.history.length > 1) {
+                    window.history.back();
+                } else {
+                    window.location.href = "index.html";
+                }
+            });
+        }
+
+        // Gestion du menu burger
+        const burgerMenu = document.querySelector('.burger-menu');
+        const navMenu = document.querySelector('nav');
+
+        burgerMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+            burgerMenu.classList.toggle('active');
+        });
+    // Fonction pour revenir en haut de la page
+            function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+/* Mise en page générale */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #fefae0; /* Couleur de fond légère */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.titre {
+    margin: auto;
+    align-items: center;
+}
+
+/* Section des chefs */
+.chefs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: #fefae0;
+}
+
+.chef {
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px; /* Coins arrondis */
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chef:hover {
+    transform: translateY(-5px); /* Légère élévation */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Ombre plus marquée */
+}
+
+.chef h3 {
+    color: #a6aa7f; /* Couleur accentuée pour le nom */
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.chef p,
+.chef ul li {
+    color: #555; /* Couleur de texte discrète */
+    font-size: 1rem;
+    margin: 5px 0;
+}
+
+.chefs .chef a {
+    text-decoration: none; /* Supprime le soulignement */
+    color: inherit; /* Utilise la couleur du parent */
+    font-weight: bold;
+}
+
+.chefs .chef a:hover {
+    text-decoration: none; /* Ajoute un soulignement au survol */
+    color: #F9A03F; /* Couleur d'accentuation */
+}
+
+/* Section des recettes */
+.recettes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: #fefae0;
+}
+
+.recette {
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px; /* Coins arrondis */
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recette:hover {
+    transform: translateY(-2px); /* Légère élévation */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Ombre plus marquée */
+}
+
+.recette h4 {
+    color: #a6aa7f; /* Couleur accentuée pour le titre */
+    font-size: 1.35rem;
+    margin: 10px 0;
+}
+
+.recette img {
+    width: 300px;
+    height: auto;
+}
+
+.recette p {
+    color: #555; /* Couleur de texte discrète */
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+.recettes .recette a {
+    text-decoration: none; /* Supprime le soulignement */
+    color: inherit; /* Conserve la couleur parent */
+    font-weight: bold;
+}
+
+.recettes .recette a:hover {
+    text-decoration: none;
+    color: #F9A03F; /* Couleur d'accentuation */
+}
+

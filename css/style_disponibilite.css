@@ -1,0 +1,195 @@
+/* Styles généraux pour la page */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    height: 100px;
+    width: auto;
+    margin-left: 20px;
+}
+
+/* Mise en surbrillance pour la date sélectionnée */
+.selected {
+    background-color: rgb(255, 208, 122);
+    color: white;
+    font-weight: bold;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-x: hidden;
+}
+
+/* Conteneur principal du calendrier et du formulaire */
+main {
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 50px; /* Espacement ajusté après l'en-tête */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Conteneur du calendrier */
+.calendar-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 40px;
+    border: 2px solid #333;
+    text-align: center;
+}
+
+/* Calendrier */
+#calendar {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.calendar-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    gap: 20px;
+}
+
+.arrow {
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: bold;
+    user-select: none;
+}
+
+table {
+    width: 100%;
+    border: 2px solid black;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+/* Style des cellules du tableau */
+th, td {
+    padding: 0;
+    text-align: center;
+    border: 1px solid black;
+    cursor: pointer;
+    position: relative;
+    height: 100px; /* Hauteur fixe de la cellule */
+}
+
+/* Style pour l'en-tête */
+th {
+    background-color: #F9A03F;
+    color: white;
+}
+
+td:hover {
+    background-color: #ffcc00;
+}
+
+/* Modification pour les réservations (midi et soir) */
+td .midi.reserved, td .soir.reserved {
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    display: block;
+    width: 100%; 
+    text-align: center;
+    height: 50%;
+}
+
+/* Les divs pour midi et soir prennent chacune la moitié de la cellule */
+td .midi, td .soir {
+    display: block;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+td .midi {
+    height: 50%; /* Limite la hauteur à 50% de la cellule */
+}
+
+td .soir {
+    height: 50%;
+}
+
+/* Formulaire de réservation */
+.reservation-form {
+    background-color: #F9F9F9;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto; /* Centrer et espacer */
+    display: none;
+    text-align: left;
+}
+
+/* Champ de texte */
+input[type="text"], input[type="email"], select {
+    padding: 12px;
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    background-color: #F9A03F;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff8c42;
+}
+
+#reservation-tab {
+    font-size: 24px;
+    font-weight: bold;
+    color: #F9A03F;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Pied de page */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+footer p {
+    margin: 0;
+}

@@ -1,0 +1,80 @@
+/* Styles généraux */
+body {
+    display: flex;
+    flex-direction: column; /* Orientation en colonne */
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+    background-color: #f5f5f5; /* Couleur de fond générale */
+    line-height: 1.6;
+}
+
+.cote_gauche, div.myname, div.formation, div.exp_pro, div.projets-info {
+    width: 90%; /* Occupe 90% de la largeur de la page */
+    max-width: 800px; /* Largeur maximale pour éviter que ce soit trop étiré */
+    margin: 20px auto; /* Centre les sections horizontalement */
+    padding: 20px;
+    background-color: #fff; /* Fond blanc */
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre élégante */
+}
+
+/* Ajustement spécifique pour la section gauche */
+.cote_gauche {
+    background-color: #94c4e2; /* Fond bleu clair */
+    color: #333; /* Texte sombre */
+}
+
+.photo_me {
+    display: block;
+    margin: 0 auto 20px;
+    border-radius: 8px; /* Ajout d'arrondi */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre discrète */
+}
+
+h3, h2 {
+    margin: 15px 0;
+    color: #333;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.2em;
+    text-align: left; /* Alignement gauche pour les titres secondaires */
+}
+
+ul {
+    padding-left: 20px;
+    margin: 10px 0;
+}
+
+li {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Titres principaux */
+.for-titre, .exp-titre, .proj-titre {
+    font-size: 1.5em;
+    color: #2c3e50;
+    border-bottom: 2px solid #94c4e2; /* Ligne décorative */
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cote_gauche, div.myname, div.formation, div.exp_pro, div.projets-info {
+        width: 100%; /* Utilisation de toute la largeur disponible */
+        padding: 10px;
+    }
+}

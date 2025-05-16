@@ -1,0 +1,594 @@
+/* Styles de base pour tout le site */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    width: 100%;
+    height: 100vh;  
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    
+    background: url("../img/img-fond-chef.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+.intro {
+    padding: 20px;
+    text-align: center;
+}
+
+.intro h2 {
+    color: #a6aa7f;
+    font-size: 2rem;
+}
+
+.intro p {
+    color: #555;
+    font-size: 1.2rem;
+}
+
+.intro .btn {
+    display: inline-block;
+    background-color: #ffcc00;
+    color: #333;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.intro .btn:hover {
+    background-color: #e6b800;
+    color: #000;
+}
+/* Style pour le bouton "S'inscrire" */
+.register-button {
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: #ffa861;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 15px; /* Espacement à gauche du burger pour la version desktop */
+    align-self: center; /* Centre verticalement le bouton */
+    position: absolute;
+    top: 75px;
+    right: 25px; /* Positionne à droite de "S'inscrire" */
+}
+
+/* Style pour le bouton "Se connecter" */
+.login-button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #fff; /* Vert pour le bouton de connexion */
+    color: #e6ab7b;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 15px; /* Espacement à gauche du bouton "S'inscrire" */
+    align-self: center; /* Centre verticalement le bouton */
+    position: absolute;
+    top: 15px;
+    right: 25px; /* Positionne à droite */
+}
+
+/* Lorsque le menu burger est ouvert, place les boutons à côté */
+header nav.open {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Aligne les éléments à droite */
+}
+
+/* Modifications spécifiques aux petits écrans */
+@media (max-width: 768px) {
+    .burger-menu {
+        display: flex; /* Affiche le menu burger */
+    }
+
+    /* Positionne les boutons "S'inscrire" et "Se connecter" à côté du burger sur mobile */
+    .register-button {
+        position: absolute;
+        top: 15px;
+        right: 75px; /* Positionne à côté du burger */
+        z-index: 15;
+    }
+
+    .login-button {
+        position: absolute;
+        top: 80px;
+        right: 75px; /* Positionne à côté du burger (ajustez la position si nécessaire) */
+        z-index: 15;
+    }
+
+    /* Lorsque le menu est ouvert, déplace les boutons dans le menu */
+    header nav.open .register-button,
+    header nav.open .login-button {
+        position: absolute;
+        right: 15px;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 20px;
+        padding-left: 10px;
+    }
+
+    header nav ul li {
+        margin: 10px 0;
+    }
+}
+/* Style de l'en-tête */
+header {
+	position : sticky;
+	top : 0;
+    background-color: #F9A03F;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px;
+    padding: 5px 15px;
+    transition: all 0.3s ease;
+    align-items: center;
+}
+
+nav ul li a:hover {
+    background-color: #ffcc00;
+    border-radius: 5px;
+}
+
+
+/* Style de l'en-tête */
+header {
+    position : sticky;
+    top : 0;
+    background-color: #F9A03F;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px;
+    padding: 5px 15px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #ffcc00;
+    border-radius: 5px;
+}
+
+
+/* Conteneur principal avec barres latérales */
+.main-container-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    flex-grow: 1;
+}
+
+/* Style pour les barres latérales */
+.sidebar {
+    width: 250px; /* Largeur des barres latérales */
+    background-color: #818181; /* Exemple de couleur de fond */
+    height: 100%; /* Prend toute la hauteur */
+}
+
+/* Conteneur du main-container */
+.main-container {
+    margin: 0 auto;
+    max-width: 1000px; /* Largeur maximale */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background-color: #fff; /* Fond blanc pour le contenu */
+    background-color: #fefae0;
+    flex-grow: 1; /* Prend tout l'espace restant entre les barres latérales */
+}
+
+
+
+/* Style FAQ */
+.faq {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.faq h2 {
+    font-size: 2rem;
+    color: #a6aa7f;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.faq-item h3 {
+    font-size: 1.5rem;
+    color: #a6aa7f;
+    margin-bottom: 10px;
+}
+
+.faq-item p {
+    color: #555;
+}
+
+/* Style de la flèche de retour en haut */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #ffcc00;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0.6; /* Diminution de l'opacité */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1000; /* S'assurer que la flèche soit au-dessus */
+}
+
+.scroll-to-top:hover {
+    opacity: 0.9; /* Moins opaque au survol */
+    transform: scale(1.1); /* Effet de zoom */
+}
+
+.scroll-to-top img {
+    width: 30px; /* Ajuster la taille de l'image de la flèche */
+    height: 30px;
+}
+
+/* Style pour la section des avis */
+.reviews {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.reviews h2 {
+    font-size: 2rem;
+    color: #a6aa7f;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.review-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.review-item p {
+    color: #555;
+}
+
+.review-item .stars {
+    color: #ffcc00;
+}
+
+/* Style de la section des prix moyens */
+.price-range {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.price-range h2 {
+    font-size: 2rem;
+    color: #a6aa7f;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.price-range p {
+    font-size: 1.2rem;
+    color: #555;
+    text-align: center;
+}
+
+
+/* Menu burger */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 15px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 15; /* Toujours au-dessus du contenu */
+    background: none; /* Pas de fond */
+    border: none; /* Pas de bordure */
+}
+.burger-menu span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 3px;
+}
+
+
+/* Responsivité - Menu burger visible seulement sur petit écran */
+@media (max-width: 768px) {
+    header nav {
+        display: none; /* Cache la navigation classique sur petit écran */
+    }
+
+    .burger-menu {
+        display: flex; /* Affiche le menu burger */
+    }
+
+    header nav.open {
+        display: block;
+        position: absolute;
+        top: 140px; /* Ajoute un espace pour le logo */
+        left: 0;
+        background-color: #F9A03F;
+        width: 100%; /* Prend toute la largeur */
+        padding: 10px 0; /* Ajuste la hauteur du menu */
+        z-index: 10;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 20px;
+        padding-left: 10px;
+    }
+
+    header h1 {
+        z-index: 12; /* Toujours visible */
+    }
+
+    .burger-menu {
+        position: fixed; /* Fixe le bouton burger */
+        z-index: 15;
+    }
+}
+
+
+/* Section des chefs */
+.chefs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: #fefae0;
+}
+
+.chef {
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px; /* Coins arrondis */
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chef:hover {
+    transform: translateY(-5px); /* Légère élévation */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Ombre plus marquée */
+}
+
+.chef h3 {
+    color: #a6aa7f; /* Couleur accentuée pour le nom */
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+.chef img {
+    border-radius: 50%; /* Pour arrondir l'image en cercle */
+    width: 100%; /* Ajustez la taille si nécessaire */
+    height: auto; /* Garder les proportions */
+}
+
+.chef p,
+.chef ul li {
+    color: #555; /* Couleur de texte discrète */
+    font-size: 1rem;
+    margin: 5px 0;
+}
+
+.chefs .chef a {
+    text-decoration: none; /* Supprime le soulignement */
+    color: inherit; /* Utilise la couleur du parent */
+    font-weight: bold;
+}
+
+.chefs .chef a:hover {
+    text-decoration: none; /* Ajoute un soulignement au survol */
+    color: #F9A03F; /* Couleur d'accentuation */
+}
+
+/* Formulaire de contact */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.contact-form h2 {
+    color: #a6aa7f;
+    text-align: center;
+}
+
+.contact-form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #ffcc00;
+    color: #333;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #e6b800;
+}
+
+/* Responsivité */
+@media (max-width: 768px) {
+    .burger-menu {
+        display: flex; /* Affiche le menu burger */
+    }
+
+    nav.main-menu {
+        display: none; /* Cache le menu par défaut sur petits écrans */
+    }
+
+    nav.open {
+        display: block; /* Affiche le menu lors de l'ouverture */
+    }
+
+    nav.open ul {
+        flex-direction: column; /* Les liens deviennent verticaux */
+        gap: 20px;
+    }
+}
+
+/* Boutons globaux */
+.btn {
+    display: inline-block;
+    background-color: #fefae0;
+    color: #333;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #e6b800;
+    color: #000;
+}
+
+/* Pied de page sticky */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto; /* Assure que le pied de page reste en bas */
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer span {
+    color: #ffd700;
+}

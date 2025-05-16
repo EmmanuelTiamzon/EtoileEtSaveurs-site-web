@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disponibilité des Chefs</title>
+    <link rel="stylesheet" href="../css/style_global.css">
+    <link rel="stylesheet" href="../css/style_disponibilite.css">
+</head>
+<body>
+
+    <header>
+        <a href="../index.html"><img src="../img/logo_etoile&saveurs.png" alt="Étoiles & Saveurs" width="100"></a>
+            
+            <div class="burger-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            
+            <a href="inscription.html" class="register-button">S'inscrire</a>
+
+            
+            <a href="connecter.html" class="login-button">Se connecter</a>
+
+        <nav>
+            <ul>
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="apropos.html">Qui sommes-nous</a></li>
+                <li><a href="page_recettes.html">Nos Chefs et Nos Recettes</a></li>
+                <li><a href="carte_chefs.html">Carte des Chefs</a></li>
+                <li><a href="disponibilite.html">Disponibilité</a></li>
+                <li><a href="page_contact.html">Contact</a></li>
+                <li><a href="javascript:history.back()" class="back-button">Retour</a></li>
+            </ul>
+        </nav>
+    </header>
+
+        <main>
+            <div class="calendar-container">
+                <h2>Choisissez une date pour voir la disponibilité</h2>
+                <div class="calendar-navigation">
+                    <span id="prev-month" class="arrow">&#9664;</span>
+                    <span id="calendar-title"></span>
+                    <span id="next-month" class="arrow">&#9654;</span>
+                </div>
+                <div id="calendar"></div>
+                <!-- Zone de réservation dans le HTML -->
+                <div id="reservation-form" class="reservation-form" style="display: none;">
+                    <p id="reservation-date" style="font-size: 1.5rem; font-weight: bold; color: #333; margin-bottom: 20px; text-align: center;"></p>
+                    <label for="chef-select">Choisissez un chef :</label>
+                    <select id="chef-select">
+                        <option value="" disabled selected>-- Sélectionner un chef --</option>
+                        <option value="Emmanuel">Emmanuel</option>
+                        <option value="Mahmoud">Mahmoud</option>
+                        <option value="Lakshmann">Lakshmann</option>
+                    </select>
+                    <br>
+                    
+                    <label for="reserver-nom">Nom de la personne réservant :</label>
+                    <input type="text" id="reserver-nom" placeholder="Votre nom">
+                    
+                    <button onclick="confirmReservation()">Confirmer la réservation</button>
+                    <button onclick="closeReservationForm()">Annuler</button>
+                </div>
+
+                </div>
+            </main>
+    <div class="scroll-to-top" onclick="scrollToTop()">
+        <img src="../img/fleche.png" alt="Retour en haut"> 
+    </div>
+    <footer>
+        <p>&copy; 2025 Étoiles & Saveurs - Tous droits réservés</p>
+    </footer>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    // Déclaration des éléments DOM
+    const calendarElement = document.getElementById('calendar');
+    const calendarTitle = document.getElementById('calendar-title');
+    const reservationForm = document.getElementById('reservation-form');
+    const reservationDateElem = document.getElementById('reservation-date');
+    const chefSelect = document.getElementById('chef-select');
+    const reserverNom = document.getElementById('reserver-nom');
+    const prevMonthArrow = document.getElementById('prev-month');
+    const nextMonthArrow = document.getElementById('next-month');
+
+    let reservedDates = []; // Contient les dates réservées
+    let selectedCell = null; // Cellule sélectionnée dans le calendrier
+    let currentDate = new Date();
+    let currentMonth = currentDate.getMonth();
+    let currentYear = currentDate.getFullYear();
+
+    // Fonction pour afficher le calendrier
+    function renderCalendar(month, year) {
+        const months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+        const daysOfWeek = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"];
+
+        calendarTitle.textContent = `${months[month]} ${year}`;
+
+        let table = `<table><thead><tr>`;
+        daysOfWeek.forEach(day => {
+            table += `<th>${day}</th>`;
+        });
+        table += `</tr></thead><tbody>`;
+
+        const firstDay = new Date(year, month, 1).getDay();
+        const lastDate = new Date(year, month + 1, 0).getDate();
+
+        let day = 1;
+        for (let row = 0; row < 6; row++) {
+            table += "<tr>";
+            for (let col = 0; col < 7; col++) {
+                if (row === 0 && col < firstDay) {
+                    table += "<td></td>";
+                } else if (day > lastDate) {
+                    table += "<td></td>";
+                } else {
+                    const dateStr = `${year}-${(month + 1).toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+                    const reservation = reservedDates.find(reserved => reserved.date === dateStr);
+
+                    const isReservedMidi = reservation && reservation.midi;
+                    const isReservedSoir = reservation && reservation.soir;
+
+                    table += `<td class="date-cell">
+                                <div class="midi ${isReservedMidi ? 'reserved' : ''}" onclick="reserveDate('${dateStr}', 'midi', this)">Midi</div>
+                                <div class="soir ${isReservedSoir ? 'reserved' : ''}" onclick="reserveDate('${dateStr}', 'soir', this)">Soir</div>
+                            </td>`;
+                    day++;
+                }
+            }
+            table += "</tr>";
+            if (day > lastDate) break;
+        }
+
+        table += `</tbody></table>`;
+        calendarElement.innerHTML = table;
+    }
+
+    // Fonction pour réserver une date (midi ou soir)
+    window.reserveDate = function (dateStr, partOfDay, element) {
+    const div = element;
+    if (div.classList.contains('reserved')) {
+        // Récupérer la réservation existante pour afficher l'alerte
+        const reservation = reservedDates.find(reserved => reserved.date === dateStr);
+        const reserverName = reservation ? reservation.reserver : 'Inconnu';
+        const chefName = reservation ? reservation.chef : 'Inconnu';
+
+        alert(`Cette partie du ${partOfDay} est déjà réservée par ${reserverName} avec le chef ${chefName}.`);
+        return;
+    }
+
+    // Libérer la cellule précédente si une autre est sélectionnée
+    if (selectedCell) {
+        selectedCell.classList.remove('selected');
+    }
+
+    // Sélectionner la cellule actuelle
+    element.classList.add('selected');
+    selectedCell = element;
+
+    // Afficher les informations de réservation
+    reservationDateElem.textContent = `Vous avez sélectionné ${dateStr} - ${partOfDay}`;
+    reservationForm.style.display = 'block';
+    chefSelect.value = '';
+    reserverNom.value = '';
+    reservationForm.dataset.selectedDate = dateStr;
+    reservationForm.dataset.partOfDay = partOfDay;
+};
+
+
+    // Fonction pour confirmer la réservation
+    window.confirmReservation = function () {
+        const selectedDate = reservationForm.dataset.selectedDate;
+        const partOfDay = reservationForm.dataset.partOfDay;
+        const chefName = chefSelect.value;
+        const reserverName = reserverNom.value;
+
+        if (!chefName || !reserverName) {
+            alert('Veuillez sélectionner un chef et entrer un nom.');
+            return;
+        }
+
+        // Vérifier si la date est déjà réservée
+        const reservationIndex = reservedDates.findIndex(reserved => reserved.date === selectedDate);
+
+        if (reservationIndex === -1) {
+            // Créer une nouvelle réservation si la date n'est pas encore réservée
+            let newReservation = { date: selectedDate, chef: chefName, reserver: reserverName };
+            newReservation[partOfDay] = true;
+            reservedDates.push(newReservation);
+        } else {
+            // Mettre à jour la réservation existante
+            reservedDates[reservationIndex][partOfDay] = true;
+            reservedDates[reservationIndex].chef = chefName;
+            reservedDates[reservationIndex].reserver = reserverName;
+        }
+
+        // Cacher le formulaire et réafficher le calendrier
+        reservationForm.style.display = 'none';
+        renderCalendar(currentMonth, currentYear);
+    };
+
+    // Fonction pour fermer le formulaire de réservation
+    window.closeReservationForm = function () {
+        reservationForm.style.display = 'none';
+        if (selectedCell) {
+            selectedCell.classList.remove('selected');
+            selectedCell = null;
+        }
+    };
+
+    // Gestion des flèches pour naviguer entre les mois
+    prevMonthArrow.addEventListener('click', function () {
+        currentMonth--;
+        if (currentMonth < 0) {
+            currentMonth = 11;
+            currentYear--;
+        }
+        renderCalendar(currentMonth, currentYear);
+    });
+
+    nextMonthArrow.addEventListener('click', function () {
+        currentMonth++;
+        if (currentMonth > 11) {
+            currentMonth = 0;
+            currentYear++;
+        }
+        renderCalendar(currentMonth, currentYear);
+    });
+
+    // Initialiser le calendrier
+    renderCalendar(currentMonth, currentYear);
+
+    // Code pour le bouton burger (menu mobile)
+    const burgerMenu = document.querySelector('.burger-menu');
+    const nav = document.querySelector('header nav');
+
+    burgerMenu.addEventListener('click', () => {
+        nav.classList.toggle('open');
+    });
+
+    // Gérer le redimensionnement pour fermer le menu burger sur grand écran
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            nav.classList.remove('open');
+        }
+    });
+
+    // Gestion du bouton "Retour"
+    const backButton = document.getElementById('back-button');
+    if (backButton) {
+        backButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                window.location.href = "index.html";
+            }
+        });
+    }
+});
+
+        // Fonction pour revenir en haut de la page
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>

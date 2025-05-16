@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Chefs - Étoiles & Saveurs</title>
+    <link rel="stylesheet" href="../css/style_global.css">
+    <link rel="stylesheet" href="../css/style_recettes.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html"><img src="../img/logo_etoile&saveurs.png" alt="TIAMZON Emmanuel" width="100"></a>
+            
+            <div class="burger-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            
+            <a href="inscription.html" class="register-button">S'inscrire</a>
+
+            
+            <a href="connecter.html" class="login-button">Se connecter</a>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="apropos.html">Qui sommes-nous</a></li>
+                <li><a href="page_recettes.html">Nos Chefs et Nos Recettes</a></li>
+                <li><a href="carte_chefs.html">Carte des Chefs</a></li> <!-- Lien ajouté pour "Carte des Chefs" -->
+                <li><a href="disponibilite.html">Disponibilité</a></li>
+                <li><a href="page_contact.html">Contact</a></li>
+                <li><a href="#" id="back-button">Retour</a></li> <!-- Lien dynamique pour "Retour" -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+        <section class="chefs">
+            <h2>Découvrez nos chefs</h2>
+            <article class="chef">
+                <a href="chef_tamill.html">
+                    <h3>TAMILL Lakshmann</h3>
+                    <p>Spécialités : Cuisine indienne</p>
+                    <p>⭐⭐⭐⭐⭐</p>
+                    <p>Spécialités : Cuisine italienne</p>
+                    <p>⭐⭐</p>
+                    <p>Prix moyen : 50 €/personne</p>
+                </a>
+            </article>
+            <article class="chef">
+                <a href="chef_atik.html">
+                    <h3>ATIK Mahmoud</h3>
+                    <p>Spécialités : Cuisine arabe</p>
+                    <p>⭐⭐⭐⭐⭐</p>
+                    <p>Spécialités : Cuisine Française</p>
+                    <p>⭐⭐⭐</p>
+                    <p>Prix moyen : 40 €/personne</p>
+                </a>
+            </article>
+            <article class="chef">
+                <a href="chef_tiamzon.html">
+                    <h3>TIAMZON Emmanuel</h3>
+                    <p>Spécialités : Cuisine asiatique</p>
+                    <p>⭐⭐⭐⭐⭐</p>
+                    <p>Spécialités : Cuisine Française</p>
+                    <p>⭐⭐⭐</p>
+                    <p>Prix moyen : 75 €/personne</p>
+                </a>
+            </article>
+        </section>
+
+        
+        <section class="recettes">
+            <h2>Nos recettes :</h2>
+            
+            <article class="recette">
+                <a href="recette-sauce_forestiere.html">
+                    <h4>Sauce forestière au poulet sur son lit de riz</h4>
+                    <img src="../img/img-sauce-forestiere.jpg" alt="Sauce Forestière">
+                    <p>Cette recette, assez facile à faire, est parfaite pour vous réchauffer pendant l'hiver.</p>
+                    <p>Le mélange entre le riz et la sauce champignon nous rappelle certains classiques français, mais le poulet est là pour rappeler le réconfort dû à son bas prix surtout en ces fins d'années.</p>
+                </a>
+            </article>
+        
+            <article class="recette">
+                <a href="recette-riz_cantonnais.html">
+                    <h4>Riz Cantonais</h4>
+                    <img src="../img/riz-cantonais.jpg" alt="Riz Cantonais">
+                    <p>Un classique de la cuisine chinoise, facile et rapide à préparer, avec un mélange parfait de riz, légumes, œufs et jambon.</p>
+                    <p>Idéal pour un repas en famille ou entre amis, ce riz cantonais saura ravir vos papilles avec ses saveurs équilibrées et sa touche de sauce soja.</p>
+                </a>
+            </article>
+        
+            <article class="recette">
+                <a href="recette-brick.html">
+                    <h4>Bricks Farcies</h4>
+                    <img src="../img/brick.png" alt="Bricks Farcies">
+                    <p>Les bricks sont une spécialité algerienne, délicieuses et faciles à préparer. Farcies de viande hachée, d'œufs et d'épices, elles sont parfaites pour un repas léger ou en apéritif.</p>
+                    <p>Fries jusqu'à obtenir une belle couleur dorée et croustillante, elles sont un véritable régal pour les papilles.</p>
+                </a>
+            </article>
+        
+        </section>
+        
+        
+    </main>
+    <div class="scroll-to-top" onclick="scrollToTop()">
+        <img src="../img/fleche.png" alt="Retour en haut"> 
+    </div>
+    <footer>
+        <p>&copy; 2024 Étoiles & Saveurs. Tous droits réservés.</p>
+        <p>Conception par <span>Isagi</span>.</p>
+    </footer>
+
+    <script>
+        // Code pour le bouton burger
+        const burgerMenu = document.querySelector('.burger-menu');
+        const nav = document.querySelector('header nav');
+
+        burgerMenu.addEventListener('click', () => {
+            nav.classList.toggle('open');
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                nav.classList.remove('open');
+            }
+        });
+
+        // Code pour le lien "Retour"
+        const backButton = document.getElementById('back-button');
+
+        // Utiliser l'historique du navigateur pour revenir à la page précédente
+        backButton.addEventListener('click', (e) => {
+            e.preventDefault(); // Empêche le comportement par défaut du lien
+            window.history.back(); // Retour à la page précédente
+        });
+            // Fonction pour revenir en haut de la page
+            function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>

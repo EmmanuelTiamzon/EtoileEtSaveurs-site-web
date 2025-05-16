@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Étoiles & Saveurs</title>
+    <link rel="stylesheet" href="../css/style_global.css">
+    <link rel="stylesheet" href="../css/style_contact.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html"><img src="../img/logo_etoile&saveurs.png" alt="TIAMZON Emmanuel" width="100"></a>
+            
+            <div class="burger-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            
+            <a href="inscription.html" class="register-button">S'inscrire</a>
+
+            
+            <a href="connecter.html" class="login-button">Se connecter</a>
+
+        <nav>
+            <ul>
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="apropos.html">Qui sommes-nous</a></li>
+                <li><a href="page_recettes.html">Nos Chefs et Nos Recettes</a></li>
+                <li><a href="carte_chefs.html">Carte des Chefs</a></li> <!-- Nouveau lien -->
+                <li><a href="disponibilite.html">Disponibilité</a></li>
+                <li><a href="page_contact.html">Contact</a></li>
+                <li><a href="#" id="back-button">Retour</a></li> <!-- Lien dynamique pour "Retour" -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-form">
+            <h2>Formulaire de contact</h2>
+            <form>
+                <label for="name">Nom :</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message :</label>
+                <textarea id="message" name="message" required></textarea>
+                
+                <button type="submit">Envoyer</button>
+            </form>
+        </section>
+        
+
+        
+    </main>
+    <div class="scroll-to-top" onclick="scrollToTop()">
+        <img src="../img/fleche.png" alt="Retour en haut"> 
+    </div>
+    <footer>
+        <p>&copy; 2024 Étoiles & Saveurs. Tous droits réservés.</p>
+    </footer>
+    
+    <script>
+        // Code pour le bouton burger
+        const burgerMenu = document.querySelector('.burger-menu');
+        const nav = document.querySelector('header nav');
+
+        burgerMenu.addEventListener('click', () => {
+            nav.classList.toggle('open');
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                nav.classList.remove('open');
+            }
+        });
+
+        // Code pour le lien "Retour"
+        const backButton = document.getElementById('back-button');
+
+        // Utiliser l'historique du navigateur pour revenir à la page précédente
+        backButton.addEventListener('click', (e) => {
+            e.preventDefault(); // Empêche le comportement par défaut du lien
+            window.history.back(); // Retour à la page précédente
+        });
+            // Fonction pour revenir en haut de la page
+            function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>

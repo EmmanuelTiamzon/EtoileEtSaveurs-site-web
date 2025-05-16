@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recette Bricks - Étoiles & Saveurs</title>
+    <link rel="stylesheet" href="../css/style_global.css">
+    <link rel="stylesheet" href="../css/style_recettes-global.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html"><img src="../img/logo_etoile&saveurs.png" alt="TIAMZON Emmanuel" width="100"></a>
+            
+            <div class="burger-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            
+            <a href="inscription.html" class="register-button">S'inscrire</a>
+
+            
+            <a href="connecter.html" class="login-button">Se connecter</a>
+
+        <nav class="main-nav" id="main-nav">
+            <ul>
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="apropos.html">Qui sommes-nous</a></li>
+                <li><a href="page_recettes.html">Nos Chefs et Nos Recettes</a></li>
+                <li><a href="carte_chefs.html">Carte des Chefs</a></li> <!-- Nouveau lien -->
+                <li><a href="disponibilite.html">Disponibilité</a></li>
+                <li><a href="page_contact.html">Contact</a></li>
+                <li><a href="javascript:history.back()" class="back-button">Retour</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="recette">
+            <h2>Bricks Farcies</h2>
+            <img src="../img/brick.png" alt="Bricks Farcies">
+            
+            <p>
+                Les bricks sont une spécialité de la cuisine algérienne, délicieuses et simples à réaliser. 
+                Elles peuvent être garnies de diverses façons, avec de la viande hachée, des légumes ou de la viande.
+                Découvrez notre recette de bricks farcies pour un repas savoureux et rapide.
+            </p>
+            <p>Avant de commencer, vérifiez d'avoir les bons ingrédients : </p>
+           
+            <ul class="list-ingredient">
+                <li>6 feuilles de brick</li>
+                <li>200g de viande hachée</li>
+                <li>2 œufs</li>
+                <li>1 oignon haché</li>
+                <li>1 cuillère à soupe de persil frais haché</li>
+                <li>Sel et poivre</li>
+                <li>Huile pour la friture</li>
+            </ul>
+        </section>
+
+        <!-- Étapes de la recette -->
+        <section class="etapes-recette">
+            <h2>Étapes de préparation</h2>
+            <ol>
+                <li>Dans un bol, mélangez la viande hachée, l'oignon haché, le persil, les œufs, le sel et le poivre.</li>
+                <li>Sur chaque feuille de brick, déposez une cuillère de farce et repliez-la pour former un triangle ou un rouleau.</li>
+                <li>Faites chauffer l'huile dans une poêle et faites frire les bricks jusqu'à ce qu'elles soient dorées et croustillantes des deux côtés.</li>
+                <li>Égouttez les bricks sur du papier absorbant pour enlever l'excès d'huile.</li>
+                <li>Servez chaud, accompagné d'une salade ou de chorba.</li>
+            </ol>
+        </section>
+    </main>
+    <div class="scroll-to-top" onclick="scrollToTop()">
+        <img src="../img/fleche.png" alt="Retour en haut"> 
+    </div>
+    <footer>
+        <p>&copy; 2024 Étoiles & Saveurs. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        // Code pour le bouton burger
+        const burgerMenu = document.querySelector('.burger-menu');
+        const nav = document.querySelector('#main-nav');
+
+        burgerMenu.addEventListener('click', () => {
+            nav.classList.toggle('open');
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                nav.classList.remove('open');
+            }
+        });
+
+        // Code pour le lien "Retour"
+        const backButton = document.querySelector('.back-button');
+
+        backButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.history.back();
+        });
+            // Fonction pour revenir en haut de la page
+            function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>
