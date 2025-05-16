@@ -16,7 +16,7 @@ Le site met en avant des chefs cuisiniers indépendants, leurs prestations, tari
 - HTML5
 - CSS3
 - JavaScript (vanilla)
-- Hébergement sur serveur Apache de l’IUT
+- Hébergement sur serveur Apache de l’IUT (dwarves)
 
 ## 📂 Structure du projet
 
@@ -32,13 +32,13 @@ SAE_WEB/
 
 ## 📍 Contexte académique
 
-Ce site a été réalisé dans le cadre de ma formation BUT Informatique à l’IUT de Fontainebleau.
+Ce site a été réalisé dans le cadre de ma formation de première année en BUT Informatique à l’IUT de Fontainebleau.
 Toute réutilisation est strictement encadrée dans le cadre pédagogique.
 
-## 🙋 Auteur
+## 🙋‍♂️ Auteur
 
-* Prénom Nom : \[Ton nom ici]
-* Étudiant à l’IUT de Fontainebleau (Université Gustave Eiffel)
+* Prénom Nom : \[Emmanuel TIAMZON]
+* Étudiant à l’IUT de Fontainebleau (UPEC)
 
 ## 📝 Remarque
 
