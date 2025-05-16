@@ -10,6 +10,11 @@ Le site met en avant des chefs cuisiniers indépendants, leurs prestations, tari
 - Réserver des repas ou des événements.
 - Lire des avis clients.
 - Trouver des réponses via la section FAQ.
+- Retrouvr l'adresse sur une carte interactive de nos chefs.
+
+## 📸 Capture d'écran 
+
+![image](https://github.com/user-attachments/assets/1f432fe9-9018-4b14-9502-fa999ce40709)
 
 ## 🔧 Technologies utilisées
 
