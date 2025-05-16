@@ -1,4 +1,3 @@
-````markdown
 # site-web-ArtEtSaveurs
 
 **Étoiles & Saveurs** est un site web développé dans le cadre d’un projet universitaire à l’IUT de Fontainebleau (Université Gustave Eiffel).  
