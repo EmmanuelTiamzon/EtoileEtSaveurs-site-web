@@ -44,5 +44,3 @@ Toute réutilisation est strictement encadrée dans le cadre pédagogique.
 
 Ce projet n’est pas destiné à un usage commercial. Il a été créé dans un but d’apprentissage uniquement.
 
-```
-
