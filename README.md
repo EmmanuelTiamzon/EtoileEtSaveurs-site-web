@@ -22,12 +22,10 @@ Le site met en avant des chefs cuisiniers indépendants, leurs prestations, tari
 
 ```bash
 SAE_WEB/
-├── assets/         # Images, vidéos, styles
-├── chefs/          # Pages individuelles pour chaque chef
-├── faq.html
-├── index.html
-├── reservation.html
-└── style.css
+├── img/         # Images
+├── html/        # Pages individuelles pour chaque chef
+├── css          # Feuilles de style utilisée
+└── index.html   # L'index du site
 ````
 
 ## 📍 Contexte académique
@@ -37,7 +35,7 @@ Toute réutilisation est strictement encadrée dans le cadre pédagogique.
 
 ## 🙋‍♂️ Auteur
 
-* Prénom Nom : Emmanuel TIAMZON & Wael ATIK
+* Prénom Nom : Wael ATIK & Emmanuel TIAMZON
 * Étudiant à l’IUT de Fontainebleau (UPEC)
 
 ## 📝 Remarque
