@@ -37,7 +37,7 @@ Toute réutilisation est strictement encadrée dans le cadre pédagogique.
 
 ## 🙋‍♂️ Auteur
 
-* Prénom Nom : \Emmanuel TIAMZON & Wael ATIK
+* Prénom Nom : Emmanuel TIAMZON & Wael ATIK
 * Étudiant à l’IUT de Fontainebleau (UPEC)
 
 ## 📝 Remarque
